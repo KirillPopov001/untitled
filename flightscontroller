@@ -1,0 +1,9 @@
+@RequestMapping(value = "registration", method = RequestMethod.GET)
+	public ModelAndView  signUp(@RequestParam Map allParams) throws SQLException {
+		ModelAndView modelAndView = new ModelAndView();
+		DBController dbController = new DBController();
+		dbController.write(String.valueOf(allParams.get("email")), String.valueOf(allParams.get("password")));
+		modelAndView.setViewName("login");
+
+		return modelAndView;
+	}
